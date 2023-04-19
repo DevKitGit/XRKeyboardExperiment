@@ -1,0 +1,23 @@
+# ProBuilder 5.0.6
+# https://unity3d.com/unity/features/worldbuilding/probuilder
+# 3/29/2023 4:07:03 PM
+
+mtllib ./Plane.mtl
+o Plane
+
+g Plane
+v 499.0688 0.0001 -500.3582
+v 499.0688 0.0001 499.6418
+v -500.9312 0.0001 -500.3582
+v -500.9312 0.0001 499.6418
+
+vt -499.0688 -500.3582
+vt -499.0688 499.6418
+vt 500.9312 -500.3582
+vt 500.9312 499.6418
+
+vn 0 1 0
+
+usemtl ProBuilderDefault
+f 3/3/1 4/4/1 2/2/1 1/1/1
+

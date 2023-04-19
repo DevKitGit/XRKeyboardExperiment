@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.devkit.modularis": {
+      "version": "https://github.com/DevKitGit/Modularis.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e50c57c570108289d2951dd2ebcccf31a699720d"
+    },
     "com.microsoft.mixedreality.openxr": {
       "version": "file:MixedReality/com.microsoft.mixedreality.openxr-1.7.2.tgz",
       "depth": 0,
@@ -152,6 +159,17 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.probuilder": {
+      "version": "5.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.settings-manager": "1.0.3",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.core": {
       "version": "1.7.0",
       "depth": 1,
@@ -165,7 +183,7 @@
     },
     "com.unity.settings-manager": {
       "version": "2.0.1",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
