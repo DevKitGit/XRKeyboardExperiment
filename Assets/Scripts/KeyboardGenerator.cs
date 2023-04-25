@@ -9,10 +9,7 @@ using UnityEngine.Serialization;
 [ExecuteInEditMode]
 public class KeyboardGenerator : MonoBehaviour
 {
-    [FormerlySerializedAs("prefab")] [SerializeField] private GameObject prefab0Depth;
-    [SerializeField] private GameObject prefab15Depth;
-    [SerializeField] private GameObject prefab30Depth;
-    
+    [SerializeField] private GameObject keyPrefab;
     [SerializeField] private GameObject spaceBarPrefab;
     [SerializeField] private GameObject backspacePrefab;
     
@@ -50,7 +47,7 @@ public class KeyboardGenerator : MonoBehaviour
                 {
                     "Backspace" => backspacePrefab,
                     "Space" => spaceBarPrefab,
-                    _ => prefab0Depth
+                    _ => keyPrefab
                 };
                 var instance = Instantiate(localPrefab, local + localPrefab.transform.position, Quaternion.identity);
                 instance.transform.SetParent(transform);

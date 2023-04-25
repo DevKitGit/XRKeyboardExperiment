@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guid: f572d8896ce5cc74e8a8ce7d00476725
   description: 
-  value: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis
-    erat eget felis tincidunt hendrerit. Morbi euismod dapibus ipsum, eget fermentum
-    sapien tempus vel. Ut quis purus nec nisl ultricies tristique. Duis eu sapien
-    vel tellus feugiat ornare. Maecenas bibendum consectetur arcu, id posuere ipsum
-    lacinia nec. Nam malesuada neque vel quam ullamcorper, at faucibus lectus lobortis.
-    Sed bibendum lacinia diam, eu volutpat est lobortis vel. Proin auctor velit vel
-    ante tincidunt laoreet. In malesuada lorem sit amet tincidunt lobortis.
+  value: "Alle b\xF8rn elsker gyldne karamelvafler med syltede hindb\xE6r, og ofte
+    er der k\xF8 foran bageriet. B\xE5de den store flodhest og den farverige p\xE5fugl
+    bor i det smukke zoologiske haveanl\xE6g. Cykelrytterne k\xE6mpede bravt op ad
+    de stejle bjerge, mens vandfaldenes brusen fyldte deres \xF8rer."

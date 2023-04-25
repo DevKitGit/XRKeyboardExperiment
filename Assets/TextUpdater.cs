@@ -6,19 +6,20 @@ using UnityEngine;
 public class TextUpdater : MonoBehaviour
 {
     private TMP_Text _text;
-    [SerializeField] private IntReference currentKeyIndex;
+    [SerializeField] private UIntReference currentKeyIndex;
     private void Start()
     {
         _text = GetComponent<TMP_Text>();
     }
     public void UpdateText(Command command, bool success)
     {
-        HighlightCharacter(_text, currentKeyIndex.Value, success);
+        
+        HighlightCharacter(_text, (int)currentKeyIndex.Value, success);
     }
     public void HighlightCharacter(TMP_Text tmpText, int index, bool correctKeyPressed) {
-        string greenStart = "<color=#" + ColorUtility.ToHtmlStringRGB(Color.green) + ">";
-        string redStart = "<color=#" + ColorUtility.ToHtmlStringRGB(Color.red) + ">";
-        string endTag = "</color>";
+        string greenStart = "<mark=#" + ColorUtility.ToHtmlStringRGB(Color.green) + ">";
+        string redStart = "<mark=#" + ColorUtility.ToHtmlStringRGB(Color.red) + ">";
+        string endTag = "</mark>";
         string mainText = tmpText.GetParsedText();
         if (correctKeyPressed)
         {

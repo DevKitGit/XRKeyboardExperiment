@@ -5,66 +5,75 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Devkit.Modularis.References;
+using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.Extensions.SceneTransitions;
+using Microsoft.MixedReality.Toolkit.Input;
+using Microsoft.MixedReality.Toolkit.SceneSystem;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+
 
 public class ExperimentManager : MonoBehaviour
 {
-    [SerializeField] private IntReference currentIndex;
+    [SerializeField] private UIntReference currentIndex;
     [SerializeField] private  StringReference promptString;
     private LoggingManager _loggingManager;
-    private string logName = "KeyboardData";
+    private string LogName => $"KeyboardData.scenario.{SceneManager.GetActiveScene().buildIndex}";
+    private LatinSquareRandomizer _latinSquareRandomizer;
     private bool _testStarted;
     private float _testStartTime;
     public int secondsToWait;
-
     private int _previousIndex;
-
     private Dictionary<string, object> loggedData = new()
     {
-        {"Head.Pos.X",null},
-        {"Head.Pos.Y",null},
-        {"Head.Pos.Z",null},
-
-        {"Head.Rot.X",null},
-        {"Head.Rot.Y",null},
-        {"Head.Rot.Z",null},
-        {"Head.Rot.W",null},
-
         {"Character",null},
+        {"KeyType",null},
         {"Time",null},
-        {"Index",null}, 
+        {"Index",null},
+        {"Handedness",null},
+        {"IndexDepth",null},
         {"EventType",null}
     };
-    public void OnButtonTouchBegin(Command command)
+    public void OnButtonTouchBegin(Command command, Handedness handedness, Transform backplateTransform)
     {
-        GenerateLog(command);
-        loggedData["EventType"]= "TouchBegin";
-        
-        _loggingManager.Log(logName, loggedData);
+        GenerateLog(command,"TouchBegin",handedness,backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
     }
-    public void OnButtonTouchEnd(Command command)
+    public void OnButtonTouchEnd(Command command, Handedness handedness, Transform backplateTransform)
     {
-        GenerateLog(command);
-        loggedData["EventType"]= "TouchEnd";
-        _loggingManager.Log(logName, loggedData);
+        GenerateLog(command,"TouchEnd",handedness,backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
     }
-    public void OnButtonPressBegin(Command command)
+    public void OnButtonPressBegin(Command command, Handedness handedness, Transform backplateTransform)
     {
-        GenerateLog(command);
-        loggedData["EventType"]= "PressBegin";
-        _loggingManager.Log(logName, loggedData);
+        GenerateLog(command,"PressBegin",handedness,backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
     }
-    public void OnButtonPressEnd(Command command)
+    public void OnButtonPressEnd(Command command, Handedness handedness, Transform backplateTransform)
     {
-        GenerateLog(command);
-        loggedData["EventType"]= "PressEnd";
-        _loggingManager.Log(logName, loggedData);
+        GenerateLog(command,"PressEnd",handedness,backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
+    }
+    public void OnbuttonPressThisFrame(Command command, Handedness handedness, Transform backplateTransform)
+    {
+        GenerateLog(command,"PressThisFrame",handedness,backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
+    }
+
+    private float CalculateIndexDepth(Handedness handedness, Transform backplateTransform)
+    {
+        HandJointUtils.TryGetJointPose(TrackedHandJoint.IndexTip, handedness, out MixedRealityPose pose);
+        var planeNormal = backplateTransform.rotation * Vector3.forward;
+        Plane plane = new Plane(planeNormal, backplateTransform.position);
+
+        var distance = plane.GetDistanceToPoint(pose.Position);
+        return distance;
     }
 
     private bool previouslyWrong = false;
-    public void OnButtonClicked(Command command)
+    public void OnButtonClicked(Command command, Handedness handedness, Transform backplateTransform)
     {
         bool success = false;
         switch (command.Type)
@@ -81,7 +90,12 @@ public class ExperimentManager : MonoBehaviour
                 {
                     break;
                 }
-                success = promptString.Value[currentIndex.Value].ToString() == " ";
+                if (currentIndex.Value == promptString.Value.Length-1)
+                {
+                    OnSceneShouldChange();
+                    break;
+                }
+                success = promptString.Value[(int)currentIndex.Value].ToString() == " ";
                 currentIndex.Value += 1;
                 break;
             case Command.KeyType.Character:
@@ -89,26 +103,59 @@ public class ExperimentManager : MonoBehaviour
                 {
                     break;
                 }
-                success = promptString.Value[currentIndex.Value].ToString().ToUpper() == command.Name;
+
+                if (currentIndex.Value == promptString.Value.Length-1)
+                {
+                    OnSceneShouldChange();
+                    break;
+                }
+                success = promptString.Value[(int)currentIndex.Value].ToString().ToUpper() == command.Name;
                 currentIndex.Value += 1;
                 break;
         }
         FindObjectOfType<TextUpdater>().UpdateText(command, success);
         previouslyWrong = !success;
-        GenerateLog(command);
-        loggedData["EventType"]= "Clicked";
-        _loggingManager.Log(logName, loggedData);
+        GenerateLog(command, "Clicked", handedness, backplateTransform);
+        _loggingManager.Log(LogName, loggedData);
         
     }
 
+    private async void TransitionToScene(int sceneIndex)
+    {
+        IMixedRealitySceneSystem sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
+        ISceneTransitionService transition = MixedRealityToolkit.Instance.GetService<ISceneTransitionService>();
+        transition.FadeInTime = 0.5f;
+        transition.FadeOutTime = 0.5f;
+        transition.FadeTargets = CameraFaderTargets.Main;
+        transition.FadeColor = Color.black;
+        // Fades out
+        // Runs LoadContent task
+        // Fades back in
+        await transition.DoSceneTransition(
+            () => sceneSystem.LoadContent(SceneManager.GetSceneByBuildIndex(sceneIndex).name, LoadSceneMode.Single)
+        );
+    }
+    private void OnSceneShouldChange()
+    {
+        currentIndex.Value = 0;
+        var index =  _latinSquareRandomizer.GetNextBuildIndex();
+        if (index.HasValue)
+        {
+            TransitionToScene(index.Value);
+        }
+        else
+        {
+            SaveAllData();
+        }
+    }
     private void Start()
     {
-        _loggingManager = FindObjectOfType<LoggingManager>();
-        Application.wantsToQuit += SaveAllData;
+        _loggingManager = GetComponent<LoggingManager>();
+        _latinSquareRandomizer = GetComponent<LatinSquareRandomizer>();
+        OnSceneShouldChange();
     }
     private void DelayedApplicationQuit()
     {
-        Application.wantsToQuit -= SaveAllData;
         Application.Quit();
     }
     private bool savingHasBegun = false;
@@ -143,21 +190,14 @@ public class ExperimentManager : MonoBehaviour
         return directoryInfo;
     }
     
-    public void GenerateLog(Command command)
+    public void GenerateLog(Command command,string eventtype, Handedness handedness, Transform backplateTransform)
     {
-        print(command.Name);
         loggedData["Character"] = command.Name;
         loggedData["KeyType"] = command.Type.ToString();
         loggedData["Time"] = Time.time - _testStartTime;
         loggedData["Index"] = currentIndex.Value;
-        
-        loggedData["Head.Pos.X"] = CameraCache.Main.transform.position.x;
-        loggedData["Head.Pos.Y"] = CameraCache.Main.transform.position.y;
-        loggedData["Head.Pos.Z"] = CameraCache.Main.transform.position.z;
-        
-        loggedData["Head.Rot.X"] = CameraCache.Main.transform.rotation.x;
-        loggedData["Head.Rot.Y"] = CameraCache.Main.transform.rotation.y;
-        loggedData["Head.Rot.Z"] = CameraCache.Main.transform.rotation.z;
-        loggedData["Head.Rot.W"] = CameraCache.Main.transform.rotation.w;
+        loggedData["Handedness"] = handedness.ToString();
+        loggedData["IndexDepth"] = CalculateIndexDepth(handedness, backplateTransform);
+        loggedData["EventType"] = eventtype;
     }
 }

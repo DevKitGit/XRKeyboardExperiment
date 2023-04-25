@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CustomCaret : MonoBehaviour
 {
-    [SerializeField] private IntReference characterIndex;
+    [SerializeField] private UIntReference characterIndex;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI caret;
     [SerializeField,Range(0,1f)] private float height = 0.5f;
@@ -34,7 +34,7 @@ public class CustomCaret : MonoBehaviour
         }
     }
     
-    public void SetCaretLeftFromSpecificCharacter(int index)
+    public void SetCaretLeftFromSpecificCharacter(uint index)
     {
         text.ForceMeshUpdate();
         TMP_CharacterInfo characterInfo = text.textInfo.characterInfo[index];
