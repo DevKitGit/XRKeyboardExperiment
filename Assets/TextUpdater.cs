@@ -13,12 +13,16 @@ public class TextUpdater : MonoBehaviour
     }
     public void UpdateText(Command command, bool success)
     {
-        
         HighlightCharacter(_text, (int)currentKeyIndex.Value, success);
     }
+
+    public void ResetHighlight()
+    {
+        _text.SetText(_text.GetParsedText());
+    }
     public void HighlightCharacter(TMP_Text tmpText, int index, bool correctKeyPressed) {
-        string greenStart = "<mark=#" + ColorUtility.ToHtmlStringRGB(Color.green) + ">";
-        string redStart = "<mark=#" + ColorUtility.ToHtmlStringRGB(Color.red) + ">";
+        string greenStart = "<mark=#" + ColorUtility.ToHtmlStringRGBA(new Color(0,1,0,0.5f)) + ">";
+        string redStart = "<mark=#" + ColorUtility.ToHtmlStringRGBA(new Color(1,0,0,0.5f)) + ">";
         string endTag = "</mark>";
         string mainText = tmpText.GetParsedText();
         if (correctKeyPressed)
@@ -36,9 +40,7 @@ public class TextUpdater : MonoBehaviour
         tmpText.SetText(mainText);
         tmpText.ForceMeshUpdate(forceTextReparsing:true);
     }
-    public void UnHighlightCharacter(TMP_Text tmpText, int index) {
-        tmpText.ForceMeshUpdate();
-        
-        tmpText.ForceMeshUpdate(forceTextReparsing:true);
+    public void UnHighlightCharacter(TMP_Text tmpText) {
+
     }
 }

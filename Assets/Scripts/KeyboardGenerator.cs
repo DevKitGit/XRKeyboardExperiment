@@ -9,9 +9,20 @@ using UnityEngine.Serialization;
 [ExecuteInEditMode]
 public class KeyboardGenerator : MonoBehaviour
 {
+    
     [SerializeField] private GameObject keyPrefab;
     [SerializeField] private GameObject spaceBarPrefab;
     [SerializeField] private GameObject backspacePrefab;
+    
+    [SerializeField] private GameObject keyPrefab16mm;
+    [SerializeField] private GameObject spaceBarPrefab16mm;
+    [SerializeField] private GameObject backspacePrefab16mm;
+
+    
+    [SerializeField] private GameObject keyPrefab30mm;
+    [SerializeField] private GameObject spaceBarPrefab30mm;
+    [SerializeField] private GameObject backspacePrefab30mm;
+
     
     [SerializeField] private float keySize;
     [SerializeField] private float HorizontalSkewAmount;
@@ -24,8 +35,7 @@ public class KeyboardGenerator : MonoBehaviour
         new[] {"","","","","Space"}
     };
     
-    [ContextMenu("Build keyboard")]
-    private void BuildKeyboard()
+    public void BuildKeyboard(int i)
     {
         ClearCurrentKeyboard();
         var startXOffset = keySize * _keyLayout[0].Length / 2;
@@ -45,9 +55,9 @@ public class KeyboardGenerator : MonoBehaviour
                 var local = transform.TransformPoint(worldSpacePos);
                 var localPrefab = col switch
                 {
-                    "Backspace" => backspacePrefab,
-                    "Space" => spaceBarPrefab,
-                    _ => keyPrefab
+                    "Backspace" => i == 1 ? backspacePrefab : i == 2 ? backspacePrefab16mm : backspacePrefab30mm,
+                    "Space" => i == 1 ? spaceBarPrefab : i == 2 ? spaceBarPrefab16mm : spaceBarPrefab30mm,
+                    _ => i == 1 ? keyPrefab : i == 2 ? keyPrefab16mm : keyPrefab30mm,
                 };
                 var instance = Instantiate(localPrefab, local + localPrefab.transform.position, Quaternion.identity);
                 instance.transform.SetParent(transform);
@@ -74,6 +84,8 @@ public class KeyboardGenerator : MonoBehaviour
             {
 #if UNITY_EDITOR
                 Undo.DestroyObjectImmediate(children[i].gameObject);
+#else
+                Destroy(children[i].gameObject);
 #endif
             }
         }

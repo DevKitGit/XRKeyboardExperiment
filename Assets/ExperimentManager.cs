@@ -20,12 +20,13 @@ public class ExperimentManager : MonoBehaviour
     [SerializeField] private UIntReference currentIndex;
     [SerializeField] private  StringReference promptString;
     private LoggingManager _loggingManager;
-    private string LogName => $"KeyboardData.scenario.{SceneManager.GetActiveScene().buildIndex}";
+    private string LogName => $"scenario.{currentCondition}";
     private LatinSquareRandomizer _latinSquareRandomizer;
     private bool _testStarted;
     private float _testStartTime;
     public int secondsToWait;
     private int _previousIndex;
+    private int currentCondition = 1;
     private Dictionary<string, object> loggedData = new()
     {
         {"Character",null},
@@ -36,16 +37,6 @@ public class ExperimentManager : MonoBehaviour
         {"IndexDepth",null},
         {"EventType",null}
     };
-    public void OnButtonTouchBegin(Command command, Handedness handedness, Transform backplateTransform)
-    {
-        GenerateLog(command,"TouchBegin",handedness,backplateTransform);
-        _loggingManager.Log(LogName, loggedData);
-    }
-    public void OnButtonTouchEnd(Command command, Handedness handedness, Transform backplateTransform)
-    {
-        GenerateLog(command,"TouchEnd",handedness,backplateTransform);
-        _loggingManager.Log(LogName, loggedData);
-    }
     public void OnButtonPressBegin(Command command, Handedness handedness, Transform backplateTransform)
     {
         GenerateLog(command,"PressBegin",handedness,backplateTransform);
@@ -76,6 +67,7 @@ public class ExperimentManager : MonoBehaviour
     public void OnButtonClicked(Command command, Handedness handedness, Transform backplateTransform)
     {
         bool success = false;
+        var conditionShouldChange = false;
         switch (command.Type)
         {
             case Command.KeyType.Backspace:
@@ -92,7 +84,7 @@ public class ExperimentManager : MonoBehaviour
                 }
                 if (currentIndex.Value == promptString.Value.Length-1)
                 {
-                    OnSceneShouldChange();
+                    OnConditionShouldChange();
                     break;
                 }
                 success = promptString.Value[(int)currentIndex.Value].ToString() == " ";
@@ -106,42 +98,41 @@ public class ExperimentManager : MonoBehaviour
 
                 if (currentIndex.Value == promptString.Value.Length-1)
                 {
-                    OnSceneShouldChange();
+                    success = promptString.Value[(int)currentIndex.Value].ToString().ToUpper() == command.Name;
+                    conditionShouldChange = success;
                     break;
                 }
                 success = promptString.Value[(int)currentIndex.Value].ToString().ToUpper() == command.Name;
                 currentIndex.Value += 1;
                 break;
         }
-        FindObjectOfType<TextUpdater>().UpdateText(command, success);
+
         previouslyWrong = !success;
         GenerateLog(command, "Clicked", handedness, backplateTransform);
         _loggingManager.Log(LogName, loggedData);
-        
+        if (conditionShouldChange)
+        {
+            previouslyWrong = false;
+            OnConditionShouldChange();
+            FindObjectOfType<TextUpdater>().ResetHighlight();
+        }
+        else
+        {
+            FindObjectOfType<TextUpdater>().UpdateText(command, success);
+
+        }
     }
 
-    private async void TransitionToScene(int sceneIndex)
-    {
-        IMixedRealitySceneSystem sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
-        ISceneTransitionService transition = MixedRealityToolkit.Instance.GetService<ISceneTransitionService>();
-        transition.FadeInTime = 0.5f;
-        transition.FadeOutTime = 0.5f;
-        transition.FadeTargets = CameraFaderTargets.Main;
-        transition.FadeColor = Color.black;
-        // Fades out
-        // Runs LoadContent task
-        // Fades back in
-        await transition.DoSceneTransition(
-            () => sceneSystem.LoadContent(SceneManager.GetSceneByBuildIndex(sceneIndex).name, LoadSceneMode.Single)
-        );
-    }
-    private void OnSceneShouldChange()
+  
+    private void OnConditionShouldChange()
     {
         currentIndex.Value = 0;
-        var index =  _latinSquareRandomizer.GetNextBuildIndex();
+
+        var index =  _latinSquareRandomizer.GetNextConditionID();
         if (index.HasValue)
         {
-            TransitionToScene(index.Value);
+            currentCondition = index.Value;
+            FindObjectOfType<KeyboardGenerator>()?.BuildKeyboard(index.Value);
         }
         else
         {
@@ -152,7 +143,7 @@ public class ExperimentManager : MonoBehaviour
     {
         _loggingManager = GetComponent<LoggingManager>();
         _latinSquareRandomizer = GetComponent<LatinSquareRandomizer>();
-        OnSceneShouldChange();
+        OnConditionShouldChange();
     }
     private void DelayedApplicationQuit()
     {

@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.MixedReality.Toolkit.Input;
 using TMPro;
 using UnityEngine;
+using Handedness = Microsoft.MixedReality.Toolkit.Utilities.Handedness;
 
-public class KeyButtonHandler : MonoBehaviour, IMixedRealityPointerHandler, IMixedRealityTouchHandler
+public class KeyButtonHandler : MonoBehaviour, IMixedRealityTouchHandler
 {
     private TMP_Text _text;
     private ExperimentManager _experimentManager;
     private Command _command;
     [SerializeField] private Transform BackplateTransform;
-    
+    private Handedness currentTouchingFinger;
     private void Start()
     {
         _text = GetComponentsInChildren<TMP_Text>().FirstOrDefault();
@@ -24,37 +23,23 @@ public class KeyButtonHandler : MonoBehaviour, IMixedRealityPointerHandler, IMix
         };
         _command = new Command(_text.text, type);
     }
-    public void OnPointerDown(MixedRealityPointerEventData eventData)
-    {
-        _experimentManager.OnButtonPressBegin(_command, eventData.Handedness,BackplateTransform);
-    }
 
-    public void OnPointerDragged(MixedRealityPointerEventData eventData)
+    public void OnClicked()
     {
-        _experimentManager.OnbuttonPressThisFrame(_command, eventData.Handedness,BackplateTransform);
-    }
-
-    public void OnPointerUp(MixedRealityPointerEventData eventData)
-    {
-        _experimentManager.OnButtonPressEnd(_command, eventData.Handedness,BackplateTransform);
-    }
-
-    public void OnPointerClicked(MixedRealityPointerEventData eventData)
-    {
-        _experimentManager.OnButtonClicked(_command, eventData.Handedness,BackplateTransform);
+        _experimentManager.OnButtonClicked(_command,currentTouchingFinger,BackplateTransform);
     }
 
     public void OnTouchStarted(HandTrackingInputEventData eventData)
     {
-        _experimentManager.OnButtonTouchBegin(_command, eventData.Handedness,BackplateTransform);
+        _experimentManager.OnButtonPressBegin(_command, eventData.Handedness,BackplateTransform);
     }
-
     public void OnTouchCompleted(HandTrackingInputEventData eventData)
     {
-        _experimentManager.OnButtonTouchEnd(_command, eventData.Handedness,BackplateTransform);
+        _experimentManager.OnButtonPressEnd(_command, eventData.Handedness,BackplateTransform);
     }
-
     public void OnTouchUpdated(HandTrackingInputEventData eventData)
     {
+        _experimentManager.OnbuttonPressThisFrame(_command,eventData.Handedness,BackplateTransform);
+        currentTouchingFinger = eventData.Handedness;
     }
 }

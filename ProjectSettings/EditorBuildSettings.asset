@@ -6,16 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Setup.unity
-    guid: 1f7cd8fbb36d1214f9b5fbe5bb990f19
-  - enabled: 1
-    path: Assets/Scenes/Condition1 - 2mm.unity
-    guid: 51ac982047a0d1849b04433b8822c500
-  - enabled: 1
-    path: Assets/Scenes/Condition2 - 16mm.unity
-    guid: ef045e7696f03ec4dab3580e735bc942
-  - enabled: 1
-    path: Assets/Scenes/Condition3 - 30mm.unity
+    path: Assets/Scenes/Main.unity
     guid: 195f38ce337ed884d878034a702a2f2e
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: a4c596713b69b2640a00dc54874b4782, type: 2}

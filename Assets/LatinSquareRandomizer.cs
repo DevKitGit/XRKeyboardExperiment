@@ -13,13 +13,9 @@ public class LatinSquareRandomizer : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        if (Application.isEditor)
-        {
-            return;
-        }
-        _orderThisRun = GenerateLatinSquareBuildIDs(GetCurrentParticipantID());
+        _orderThisRun = GenerateLatinSquareConditionIDs(GetCurrentParticipantID());
     }
-    public int? GetNextBuildIndex()
+    public int? GetNextConditionID()
     {
         return currentOrderIndex >= _orderThisRun.Count ? null : _orderThisRun[currentOrderIndex++];
     }
@@ -32,23 +28,23 @@ public class LatinSquareRandomizer : MonoBehaviour
     string root = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\XRKeyboardExperimentData";
     
     // Based on "Bradley, J. V. Complete counterbalancing of immediate sequential effects in a Latin square design. J. Amer. Statist. Ass.,.1958, 53, 525-528. "
-    public List<int> GenerateLatinSquareBuildIDs(int participantId)
+    public List<int> GenerateLatinSquareConditionIDs(int participantId)
     {
         var result = new List<int>();
-        var scenes = new List<int> {1,2,3};
+        var conditions = new List<int> {1,2,3};
         
-        for (int i = 0, j = 0, h = 0; i < scenes.Count; ++i) {
+        for (int i = 0, j = 0, h = 0; i < conditions.Count; ++i) {
             int val = 0;
             if (i < 2 || i % 2 != 0) {
                 val = j++;
             } else {
-                val = scenes.Count - h - 1;
+                val = conditions.Count - h - 1;
                 ++h;
             }
-            var idx = (val + participantId) % scenes.Count;
-            result.Add(scenes[idx]);
+            var idx = (val + participantId) % conditions.Count;
+            result.Add(conditions[idx]);
         }
-        if (scenes.Count % 2 != 0 && participantId % 2 != 0) {
+        if (conditions.Count % 2 != 0 && participantId % 2 != 0) {
             result.Reverse();
         }
         return result;

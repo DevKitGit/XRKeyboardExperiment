@@ -3,43 +3,41 @@
   <component name="ChangeListManager">
     <list default="true" id="42b603bc-5d83-462a-9983-46bd60733330" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.XRKeyboardExperiment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XRKeyboardExperiment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CustomCaret.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CustomCaret.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DontDestroyOnLoadSetter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DontDestroyOnLoadSetter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ExperimentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExperimentManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LoggingManager/LogStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LoggingManager/LogStore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GridBox_Default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GridBox_Default.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key 1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key 1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key 2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key 2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Key.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/KeyBackspace.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/KeyBackspace.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/KeySpace.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/KeySpace.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Lato-Light SDF.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Lato-Light SDF.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Lato-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Lato-Light.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Plane.mtl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Plane.mtl.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Plane.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Plane.obj.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ProBuilderDefault.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ProBuilderDefault.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KeyButtonHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/KeyButtonHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/16mm/Key 16mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/16mm/Key 16mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/16mm/KeyBackspace 16mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/16mm/KeyBackspace 16mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/16mm/KeySpace 16mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/16mm/KeySpace 16mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/2mm/Key 2mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/2mm/Key 2mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/2mm/KeyBackspace 2mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/2mm/KeyBackspace 2mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/2mm/KeySpace 2mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/2mm/KeySpace 2mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/30mm/Key 30mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/30mm/Key 30mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/30mm/KeyBackspace 30mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/30mm/KeyBackspace 30mm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/30mm/KeySpace 30mm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/30mm/KeySpace 30mm.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ressources/CharacterIndex.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ressources/CharacterIndex.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ressources/CharacterIndex.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ressources/CharacterIndex.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ressources/Prompt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ressources/Prompt.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Mixed Reality Toolkit Examples/2.8.3/Demos - HandTracking/Profiles/RecordArticulatedHandPoseConfigurationProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Mixed Reality Toolkit Examples/2.8.3/Demos - HandTracking/Profiles/RecordArticulatedHandPoseConfigurationProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/Mixed Reality Toolkit Examples/2.8.3/Demos - HandTracking/Profiles/RecordArticulatedHandPoseInputSystemProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/Mixed Reality Toolkit Examples/2.8.3/Demos - HandTracking/Profiles/RecordArticulatedHandPoseInputSystemProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition1 - 2mm.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition1 - 2mm.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition2 - 16mm.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition2 - 16mm.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition3 - 30mm.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Condition3 - 30mm.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Setup.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Setup.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/KeyboardGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/KeyboardGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextUpdater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/UserSimulationSettings/SimulationEnvironmentAssetsManager.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +55,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/TextUpdater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.extensions@84fe3e76e9b7/SceneTransitionService/SceneTransitionService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Core/Inspectors/Profiles/BaseMixedRealityProfileInspector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Core/Utilities/SceneContent/MixedRealitySceneContent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/SDK/Features/UX/Scripts/PressableButtons/PressableButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/InputSystem/FocusProvider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/InputSystem/MixedRealityInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/InputSystem/MixedRealityInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/SceneSystem/MixedRealitySceneSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ba80266bdc0549f69eb2853bd3ede7ff16da00/d0/bcc40f04/Plane.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cca89918937e838503d883f1aa1784c57493a1cacd61b1f5fe1ebf5a1e3567a/System.Numerics.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -127,10 +130,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12840">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12840" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -158,14 +161,27 @@
       <workItem from="1682285799624" duration="3466000" />
       <workItem from="1682322229822" duration="9952000" />
       <workItem from="1682407619836" duration="39000" />
+      <workItem from="1682409266485" duration="9139000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
