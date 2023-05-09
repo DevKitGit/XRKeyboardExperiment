@@ -2,9 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42b603bc-5d83-462a-9983-46bd60733330" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.XRKeyboardExperiment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.XRKeyboardExperiment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AutoScroll.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AutoScroll.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomCaret.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CustomCaret.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DontDestroyOnLoadSetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DontDestroyOnLoadSetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExperimentManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ExperimentManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KeyButtonHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/KeyButtonHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ressources/NewLineEvent.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ressources/NewLineEvent.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MixedRealityPlayspace.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MixedRealityPlayspace.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SelectOnStart.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SelectOnStart.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextUpdater.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextUpdater.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,13 +33,7 @@
     <setting file="file://$PROJECT_DIR$/../P8/Assets/Scripts/Recording/GestureLogger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../P8/Assets/Scripts/Recording/GestureRecorder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../P8/Assets/UserPoseRecorder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CustomCaret.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DontDestroyOnLoadSetter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ExperimentManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/KeyButtonHandler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LatinSquareRandomizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/KeyboardCharacterPressInvoker.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/TextUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.extensions@84fe3e76e9b7/SceneTransitionService/SceneTransitionService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Core/Inspectors/Profiles/BaseMixedRealityProfileInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Core/Utilities/SceneContent/MixedRealitySceneContent.cs" root0="SKIP_HIGHLIGHTING" />
@@ -31,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/InputSystem/MixedRealityInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.microsoft.mixedreality.toolkit.foundation@f2323a9b7aec/Services/SceneSystem/MixedRealitySceneSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ba80266bdc0549f69eb2853bd3ede7ff16da00/d0/bcc40f04/Plane.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,10 +110,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12840">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="12840" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -129,6 +142,7 @@
       <workItem from="1682322229822" duration="9952000" />
       <workItem from="1682407619836" duration="39000" />
       <workItem from="1682409266485" duration="9735000" />
+      <workItem from="1683627850611" duration="41000" />
     </task>
     <servers />
   </component>
